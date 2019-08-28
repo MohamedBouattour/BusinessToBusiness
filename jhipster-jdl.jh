@@ -1,0 +1,62 @@
+entity Country {
+	countryName String
+}
+
+entity Region {
+	name String required,
+}
+entity Business {
+	raisonSociale String required,
+    nom String required,
+    prenom String required,
+    matriculeFiscale String required,
+    adresse String required,
+    email String required,
+    siteweb String required,
+    cp Long required,
+    telecom Long ,
+    ooredoo Long ,
+    orange Long ,
+    fixe Long ,
+    fixe2 Long ,
+    fax Long ,
+    motivation Integer,
+    isLocal Boolean required
+}
+
+entity Appointment{
+	date LocalDate required
+    time String required
+    location String required
+    numTable Integer required
+    etat EtatAppointment required
+}
+
+entity Productionstep{
+	name String required
+}
+
+entity Subsector{
+	name String required
+}
+
+entity Sector{
+	name String required
+}
+
+enum EtatAppointment {
+    EnAttente, Annuler, Reporte
+}
+
+relationship ManyToOne{
+	Business to Subsector
+    Business to Region
+    Productionstep to Business
+}
+
+relationship OneToMany{
+	Sector to Subsector
+    Country to Region
+    Business to Appointment
+    Appointment to Business
+}
