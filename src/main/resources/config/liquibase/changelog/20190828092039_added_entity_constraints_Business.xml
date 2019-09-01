@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Business.
+    -->
+    <changeSet id="20190828092039-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="subsector_id"
+                                 baseTableName="business"
+                                 constraintName="fk_business_subsector_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subsector"/>
+
+        <addForeignKeyConstraint baseColumnNames="region_id"
+                                 baseTableName="business"
+                                 constraintName="fk_business_region_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="region"/>
+
+    </changeSet>
+</databaseChangeLog>

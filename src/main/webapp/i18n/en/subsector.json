@@ -1,0 +1,24 @@
+{
+  "casb2BApp": {
+    "subsector": {
+      "home": {
+        "title": "Subsectors",
+        "createLabel": "Create a new Subsector",
+        "createOrEditLabel": "Create or edit a Subsector",
+        "notFound": "No Subsectors found"
+      },
+      "created": "A new Subsector is created with identifier {{ param }}",
+      "updated": "A Subsector is updated with identifier {{ param }}",
+      "deleted": "A Subsector is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Subsector {{ id }}?"
+      },
+      "detail": {
+        "title": "Subsector"
+      },
+      "name": "Name",
+      "sector": "Sector",
+      "business": "Business"
+    }
+  }
+}

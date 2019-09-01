@@ -1,0 +1,121 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-appointment-heading" jhiTranslate="casb2BApp.appointment.home.createOrEditLabel">Create or edit a Appointment</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('date').invalid && (editForm.get('date').dirty || editForm.get('date').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.time" for="field_time">Time</label>
+                    <input type="text" class="form-control" name="time" id="field_time"
+                           formControlName="time"/>
+                    <div *ngIf="editForm.get('time').invalid && (editForm.get('time').dirty || editForm.get('time').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('time').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.location" for="field_location">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                           formControlName="location"/>
+                    <div *ngIf="editForm.get('location').invalid && (editForm.get('location').dirty || editForm.get('location').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('location').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.numTable" for="field_numTable">Num Table</label>
+                    <input type="number" class="form-control" name="numTable" id="field_numTable"
+                           formControlName="numTable"/>
+                    <div *ngIf="editForm.get('numTable').invalid && (editForm.get('numTable').dirty || editForm.get('numTable').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numTable').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numTable')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.etat" for="field_etat">Etat</label>
+                    <select class="form-control" name="etat" formControlName="etat" id="field_etat">
+                        <option value="Active">{{'casb2BApp.EtatAppointment.Active' | translate}}</option>
+                        <option value="EnAttente">{{'casb2BApp.EtatAppointment.EnAttente' | translate}}</option>
+                        <option value="Annuler">{{'casb2BApp.EtatAppointment.Annuler' | translate}}</option>
+                        <option value="Reporte">{{'casb2BApp.EtatAppointment.Reporte' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('etat').invalid && (editForm.get('etat').dirty || editForm.get('etat').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.host" for="field_host">Host</label>
+                    <input type="number" class="form-control" name="host" id="field_host"
+                           formControlName="host"/>
+                    <div *ngIf="editForm.get('host').invalid && (editForm.get('host').dirty || editForm.get('host').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('host').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('host')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.appointment.guest" for="field_guest">Guest</label>
+                    <input type="number" class="form-control" name="guest" id="field_guest"
+                           formControlName="guest"/>
+                    <div *ngIf="editForm.get('guest').invalid && (editForm.get('guest').dirty || editForm.get('guest').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('guest').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('guest')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

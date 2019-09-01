@@ -1,0 +1,127 @@
+{
+    "name": "Business",
+    "fields": [
+        {
+            "fieldName": "raisonSociale",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "matriculeFiscale",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresse",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "siteweb",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cp",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telecom",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ooredoo",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "orange",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fixe",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fixe2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fax",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "motivation",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isLocal",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "subsector",
+            "otherEntityRelationshipName": "business",
+            "relationshipName": "subsector",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "region",
+            "otherEntityRelationshipName": "business",
+            "relationshipName": "region",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "productionstep",
+            "otherEntityRelationshipName": "business",
+            "relationshipName": "productionstep"
+        }
+    ],
+    "changelogDate": "20190828092039",
+    "entityTableName": "business",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

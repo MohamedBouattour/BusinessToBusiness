@@ -1,0 +1,36 @@
+{
+    "name": "Subsector",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sector",
+            "otherEntityRelationshipName": "subsector",
+            "relationshipName": "sector",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "business",
+            "otherEntityRelationshipName": "subsector",
+            "relationshipName": "business"
+        }
+    ],
+    "changelogDate": "20190828092042",
+    "entityTableName": "subsector",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

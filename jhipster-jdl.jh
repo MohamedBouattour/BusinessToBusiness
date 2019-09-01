@@ -30,6 +30,8 @@ entity Appointment{
     location String required
     numTable Integer required
     etat EtatAppointment required
+    host Long required
+    guest Long required
 }
 
 entity Productionstep{
@@ -45,7 +47,7 @@ entity Sector{
 }
 
 enum EtatAppointment {
-    EnAttente, Annuler, Reporte
+    Active, EnAttente, Annuler, Reporte
 }
 
 relationship ManyToOne{
@@ -57,6 +59,4 @@ relationship ManyToOne{
 relationship OneToMany{
 	Sector to Subsector
     Country to Region
-    Business to Appointment
-    Appointment to Business
 }

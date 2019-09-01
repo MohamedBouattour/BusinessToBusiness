@@ -1,0 +1,180 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-business-heading" jhiTranslate="casb2BApp.business.home.createOrEditLabel">Create or edit a Business</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.raisonSociale" for="field_raisonSociale">Raison Sociale</label>
+                    <input type="text" class="form-control" name="raisonSociale" id="field_raisonSociale"
+                           formControlName="raisonSociale"/>
+                    <div *ngIf="editForm.get('raisonSociale').invalid && (editForm.get('raisonSociale').dirty || editForm.get('raisonSociale').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('raisonSociale').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom').invalid && (editForm.get('nom').dirty || editForm.get('nom').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom').invalid && (editForm.get('prenom').dirty || editForm.get('prenom').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.matriculeFiscale" for="field_matriculeFiscale">Matricule Fiscale</label>
+                    <input type="text" class="form-control" name="matriculeFiscale" id="field_matriculeFiscale"
+                           formControlName="matriculeFiscale"/>
+                    <div *ngIf="editForm.get('matriculeFiscale').invalid && (editForm.get('matriculeFiscale').dirty || editForm.get('matriculeFiscale').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('matriculeFiscale').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse').invalid && (editForm.get('adresse').dirty || editForm.get('adresse').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.siteweb" for="field_siteweb">Siteweb</label>
+                    <input type="text" class="form-control" name="siteweb" id="field_siteweb"
+                           formControlName="siteweb"/>
+                    <div *ngIf="editForm.get('siteweb').invalid && (editForm.get('siteweb').dirty || editForm.get('siteweb').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('siteweb').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.cp" for="field_cp">Cp</label>
+                    <input type="number" class="form-control" name="cp" id="field_cp"
+                           formControlName="cp"/>
+                    <div *ngIf="editForm.get('cp').invalid && (editForm.get('cp').dirty || editForm.get('cp').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cp').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('cp')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.telecom" for="field_telecom">Telecom</label>
+                    <input type="number" class="form-control" name="telecom" id="field_telecom"
+                           formControlName="telecom"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.ooredoo" for="field_ooredoo">Ooredoo</label>
+                    <input type="number" class="form-control" name="ooredoo" id="field_ooredoo"
+                           formControlName="ooredoo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.orange" for="field_orange">Orange</label>
+                    <input type="number" class="form-control" name="orange" id="field_orange"
+                           formControlName="orange"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.fixe" for="field_fixe">Fixe</label>
+                    <input type="number" class="form-control" name="fixe" id="field_fixe"
+                           formControlName="fixe"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.fixe2" for="field_fixe2">Fixe 2</label>
+                    <input type="number" class="form-control" name="fixe2" id="field_fixe2"
+                           formControlName="fixe2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.fax" for="field_fax">Fax</label>
+                    <input type="number" class="form-control" name="fax" id="field_fax"
+                           formControlName="fax"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.motivation" for="field_motivation">Motivation</label>
+                    <input type="number" class="form-control" name="motivation" id="field_motivation"
+                           formControlName="motivation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.isLocal" for="field_isLocal">Is Local</label>
+                    <input type="checkbox" class="form-control" name="isLocal" id="field_isLocal"
+                           formControlName="isLocal"/>
+                    <div *ngIf="editForm.get('isLocal').invalid && (editForm.get('isLocal').dirty || editForm.get('isLocal').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isLocal').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_subsector">Sous-secteur</label>
+                    <select class="form-control" id="field_subsector" name="subsector" formControlName="subsector">
+                        <option [ngValue]="null"></option>
+                            <optgroup *ngFor='let s of sectors' label="{{s.name}}">
+                            <option [ngValue]="subsectorOption.id === editForm.get('subsector').value?.id ? editForm.get('subsector').value : subsectorOption" *ngFor="let subsectorOption of s?.subsectors; trackBy: trackSubsectorById">{{subsectorOption.name}}</option>
+                            </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casb2BApp.business.region" for="field_region">Region</label>
+                    <select class="form-control" id="field_region" name="region" formControlName="region">
+                        <option [ngValue]="null"></option>
+                        <optgroup *ngFor='let c of countrys' label="{{c.countryName}}">
+                        <option [ngValue]="regionOption.id === editForm.get('region').value?.id ? editForm.get('region').value : regionOption" *ngFor="let regionOption of c.regions; trackBy: trackRegionById">{{regionOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

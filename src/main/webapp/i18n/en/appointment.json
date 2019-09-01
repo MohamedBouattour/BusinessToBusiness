@@ -1,0 +1,28 @@
+{
+  "casb2BApp": {
+    "appointment": {
+      "home": {
+        "title": "Appointments",
+        "createLabel": "Create a new Appointment",
+        "createOrEditLabel": "Create or edit a Appointment",
+        "notFound": "No Appointments found"
+      },
+      "created": "A new Appointment is created with identifier {{ param }}",
+      "updated": "A Appointment is updated with identifier {{ param }}",
+      "deleted": "A Appointment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appointment {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment"
+      },
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "numTable": "Num Table",
+      "etat": "Etat",
+      "host": "Host",
+      "guest": "Guest"
+    }
+  }
+}

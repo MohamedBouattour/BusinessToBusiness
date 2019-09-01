@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="business">
+            <h2><span jhiTranslate="casb2BApp.business.detail.title">Business</span> {{business.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casb2BApp.business.raisonSociale">Raison Sociale</span></dt>
+                <dd>
+                    <span>{{business.raisonSociale}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.nom">Nom</span></dt>
+                <dd>
+                    <span>{{business.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{business.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.matriculeFiscale">Matricule Fiscale</span></dt>
+                <dd>
+                    <span>{{business.matriculeFiscale}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{business.adresse}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.email">Email</span></dt>
+                <dd>
+                    <span>{{business.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.siteweb">Siteweb</span></dt>
+                <dd>
+                    <span>{{business.siteweb}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.cp">Cp</span></dt>
+                <dd>
+                    <span>{{business.cp}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.telecom">Telecom</span></dt>
+                <dd>
+                    <span>{{business.telecom}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.ooredoo">Ooredoo</span></dt>
+                <dd>
+                    <span>{{business.ooredoo}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.orange">Orange</span></dt>
+                <dd>
+                    <span>{{business.orange}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.fixe">Fixe</span></dt>
+                <dd>
+                    <span>{{business.fixe}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.fixe2">Fixe 2</span></dt>
+                <dd>
+                    <span>{{business.fixe2}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.fax">Fax</span></dt>
+                <dd>
+                    <span>{{business.fax}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.motivation">Motivation</span></dt>
+                <dd>
+                    <span>{{business.motivation}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.isLocal">Is Local</span></dt>
+                <dd>
+                    <span>{{business.isLocal}}</span>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.subsector">Subsector</span></dt>
+                <dd>
+                    <div *ngIf="business.subsector">
+                        <a [routerLink]="['/subsector', business.subsector?.id, 'view']">{{business.subsector?.sector.name}} : {{business.subsector?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="casb2BApp.business.region">Region</span></dt>
+                <dd>
+                    <div *ngIf="business.region">
+                        <a [routerLink]="['/region', business.region?.id, 'view']">{{business.region?.country.countryName}} : {{business.region?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/business', business.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

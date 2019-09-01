@@ -1,0 +1,30 @@
+{
+    "name": "Productionstep",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "business",
+            "otherEntityRelationshipName": "productionstep",
+            "relationshipName": "business",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190828092041",
+    "entityTableName": "productionstep",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

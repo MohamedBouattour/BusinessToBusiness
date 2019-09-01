@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="casb2BApp.productionstep.home.title">Productionsteps</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-productionstep" [routerLink]="['/productionstep/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="casb2BApp.productionstep.home.createLabel">
+            Create a new Productionstep
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="productionsteps?.length === 0">
+        <span jhiTranslate="casb2BApp.productionstep.home.notFound">No productionsteps found</span>
+    </div>
+    <div class="table-responsive" *ngIf="productionsteps?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="casb2BApp.productionstep.name">Name</span></th>
+            <th><span jhiTranslate="casb2BApp.productionstep.business">Business</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let productionstep of productionsteps ;trackBy: trackId">
+                <td><a [routerLink]="['/productionstep', productionstep.id, 'view' ]">{{productionstep.id}}</a></td>
+                <td>{{productionstep.name}}</td>
+                <td>
+                    <div *ngIf="productionstep.business">
+                        <a [routerLink]="['/business', productionstep.business?.id, 'view' ]" >{{productionstep.business?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/productionstep', productionstep.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/productionstep', productionstep.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/productionstep', { outlets: { popup: productionstep.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

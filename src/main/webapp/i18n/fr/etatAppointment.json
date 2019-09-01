@@ -1,0 +1,11 @@
+{
+  "casb2BApp": {
+    "EtatAppointment": {
+      "null": "",
+      "Active": "Active",
+      "EnAttente": "EnAttente",
+      "Annuler": "Annuler",
+      "Reporte": "Reporte"
+    }
+  }
+}

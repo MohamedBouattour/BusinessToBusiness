@@ -1,0 +1,29 @@
+{
+    "name": "Sector",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "subsector",
+            "otherEntityRelationshipName": "sector",
+            "relationshipName": "subsector"
+        }
+    ],
+    "changelogDate": "20190828092043",
+    "entityTableName": "sector",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -10,7 +10,9 @@ Navbar
   font-size: 0.65em;
   color: $navbar-dark-color;
 }
-
+a {
+  color: #000000;
+}
 .profile-image {
   height: 1.75em;
   width: 1.75em;

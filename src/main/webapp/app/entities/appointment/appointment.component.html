@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="casb2BApp.appointment.home.title">Appointments</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-appointment" [routerLink]="['/appointment/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="casb2BApp.appointment.home.createLabel">
+            Create a new Appointment
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="appointments?.length === 0">
+        <span jhiTranslate="casb2BApp.appointment.home.notFound">No appointments found</span>
+    </div>
+    <div class="table-responsive" *ngIf="appointments?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.date">Date</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.time">Time</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.location">Location</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.numTable">Num Table</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.etat">Etat</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.host">Host</span></th>
+            <th><span jhiTranslate="casb2BApp.appointment.guest">Guest</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let appointment of appointments ;trackBy: trackId">
+                <td><a [routerLink]="['/appointment', appointment.id, 'view' ]">{{appointment.id}}</a></td>
+                <td>{{appointment.date | date:'mediumDate'}}</td>
+                <td>{{appointment.time}}</td>
+                <td>{{appointment.location}}</td>
+                <td>{{appointment.numTable}}</td>
+                <td jhiTranslate="{{'casb2BApp.EtatAppointment.' + appointment.etat}}">{{appointment.etat}}</td>
+                <td>{{appointment.host}}</td>
+                <td>{{appointment.guest}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/appointment', appointment.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/appointment', appointment.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/appointment', { outlets: { popup: appointment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

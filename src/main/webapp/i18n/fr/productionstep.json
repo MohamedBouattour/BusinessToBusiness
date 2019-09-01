@@ -1,0 +1,23 @@
+{
+  "casb2BApp": {
+    "productionstep": {
+      "home": {
+        "title": "Productionsteps",
+        "createLabel": "Créer un nouveau Productionstep",
+        "createOrEditLabel": "Créer ou éditer un Productionstep",
+        "notFound": "Aucun Productionstep trouvé"
+      },
+      "created": "Un nouveau Productionstep a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Productionstep avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Productionstep avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Productionstep {{ id }} ?"
+      },
+      "detail": {
+        "title": "Productionstep"
+      },
+      "name": "Name",
+      "business": "Business"
+    }
+  }
+}
